@@ -37,15 +37,9 @@
 	\winseperator
 	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 }
-
-
-
-%Margin-indstillinger:
-\setlrmarginsandblock{0.9cm}{*}{1} %angiver venstre-, så højremargin
-\setulmarginsandblock{1.49cm}{*}{1} %angiver øvre-, så nedremargin
+\setlrmarginsandblock{0.9cm}{*}{1}
+\setulmarginsandblock{1.49cm}{*}{1}
 \checkandfixthelayout[nearest]
-
-%Følgende giver en minimal sidehoved og sidefod hvor der kun er sidetal.
 \pagestyle{empty}
 
 \begin{document}
@@ -182,7 +176,7 @@
 	\\\conditionseperator
 	\condition{Foolish}: You may not turn down an offer to Card Share or Colour Share.
 	\\\vspace{0.05cm}
-	\tiny (The \condition{shy} and \condition{foolish} conditions cancel eachother out.) \normalsize
+	\tiny (The \condition{shy} and \condition{foolish} conditions cancel each other out.) \normalsize
 	\\\vspace{0.25cm}
 	\greenwinsection
 };
@@ -194,7 +188,7 @@
 	\\\conditionseperator
 	\condition{Foolish}: You may not turn down an offer to Card Share or Colour Share.
 	\\\vspace{0.05cm}
-	\tiny (The \condition{shy} and \condition{foolish} conditions cancel eachother out.) \normalsize
+	\tiny (The \condition{shy} and \condition{foolish} conditions cancel each other out.) \normalsize
 	\\\vspace{0.25cm}
 	\redwinsection
 };
@@ -411,7 +405,7 @@
 \node[cardtext, text=gray] at (16,6.9) {
 	{\Huge MI6 Elf}
 	\\\winseperator
-	You win if you card share with the Bomber and the President before the end of the game.
+	You win if you card share with the \character{Grinch} and \character{Santa} before the end of the game.
 };
 
 \draw (0,0) -- (19.2,0);
@@ -431,126 +425,6 @@
 %Background is not my own. But courtesy of a user on BGG
 \includepdf[pages={1}, angle=90]{cardsbackground.pdf}
 \pagebreak
-
-\noindent \begin{tikzpicture}[outer sep=0]
-
-% xxx ELF (GREEN TEAM)
-\node[teamshare, fill=ForestGreen] (1) at (3.2,26.7) {\HUGE GREEN};
-\node[cardtext, text=ForestGreen] at (3.2,24.7) {
-	{\Huge xxx Elf}
-	\\\conditionseperator
-	\condition{Shy}: You may not reveal any part of your card in any way.
-	\\\vspace{0.05cm}
-	\tiny (The \condition{foolish} and \condition{shy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
-	\greenwinsection
-};
-
-% xxx ELF (RED TEAM)
-\node[teamshare, fill=red] at (9.6,26.7) {\HUGE RED};
-\node[cardtext, text=red] at (9.6,24.7) {
-	{\Huge xxx Elf}
-	\\\conditionseperator
-	\condition{Shy}: You may not reveal any part of your card in any way.
-	\\\vspace{0.05cm}
-	\tiny (The \condition{foolish} and \condition{shy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
-	\redwinsection
-};
-
-% xxx ELF (RED TEAM)
-\node[teamshare, fill=ForestGreen] at (16,26.7) {\HUGE GREEN};
-\node[cardtext, text=red] at (16,24.7) {
-	{\Huge xxx Elf}
-	\\\descriptionseperator
-	The top of your card says GREEN, but you are actually on Team Red.
-	\\\vspace{0.25cm}
-	\redwinsection
-};
-
-% xxx ELF (RED TEAM)
-\node[teamshare, fill=red] at (3.2,17.8) {\HUGE RED};
-\node[cardtext, text=red] at (3.2,15.8) {
-	{\Huge xxx Elf}
-	\\\conditionseperator
-	\condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.
-	\\\vspace{0.25cm}
-	\redwinsection
-};
-
-% xxx ELF (GREEN TEAM)
-\node[teamshare, fill=ForestGreen] at (9.6,17.8) {\HUGE GREEN};
-\node[cardtext, text=ForestGreen] at (9.6,15.8) {
-	{\Huge xxx Elf}
-	\\\conditionseperator
-	\condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.
-	\\\vspace{0.25cm}
-	\greenwinsection
-};
-
-% xxx ELF (GREEN TEAM)
-\node[teamshare, fill=red] at (16,17.8) {\HUGE RED};
-\node[cardtext, text=ForestGreen] at (16,15.8) {
-	{\Huge xxx Elf}
-	\\\descriptionseperator
-	The top of your card says RED, but you are actually on Team Green.
-	\\\vspace{0.25cm}
-	\redwinsection
-};
-
-% xxx ELF (GREEN TEAM)
-\node[teamshare, fill=ForestGreen] at (3.2,8.9) {\HUGE GREEN};
-\node[cardtext, text=ForestGreen] at (3.2,6.9) {
-	{\Huge xxx Elf}
-	\\\conditionseperator
-	\condition{Coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.
-	\\\vspace{0.05cm}
-	\tiny (The \condition{foolish} and \condition{coy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
-	\greenwinsection
-};
-
-% xxx ELF (RED TEAM)
-\node[teamshare, fill=red] at (9.6,8.9) {\HUGE RED};
-\node[cardtext, text=red] at (9.6,6.9) {
-	{\Huge xxx Elf}
-	\\\conditionseperator
-	\condition{Coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.
-	\\\vspace{0.05cm}
-	\tiny (The \condition{foolish} and \condition{coy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
-	\redwinsection
-};
-
-% xxx ELF
-\node[teamshare, fill=gray] at (16,8.9) {\HUGE GREY};
-\node[cardtext, text=gray] at (16,6.9) {
-	{\Huge xxx Elf}
-	\\\winseperator
-	You win if you card share with the Bomber and the President before the end of the game.
-};
-
-
-\draw (0,0) -- (19.2,0);
-\draw (0,8.9) -- (19.2,8.9);
-\draw (0,17.8) -- (19.2,17.8);
-\draw (0,26.7) -- (19.2,26.7);
-
-\draw (0,0) -- (0,26.7);
-\draw (6.4,0) -- (6.4,26.7);
-\draw (12.8,0) -- (12.8,26.7);
-\draw (19.2,0) -- (19.2,26.7);
-
-
-
-\end{tikzpicture}
-
-%Background is not my own. But courtesy of a user on BGG
-\includepdf[pages={1}, angle=90]{cardsbackground.pdf}
-\pagebreak
-
-
-
 
 
 \end{document}

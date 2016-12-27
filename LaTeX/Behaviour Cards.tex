@@ -37,14 +37,9 @@
 	\winseperator
 	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 }
-
-
-%Margin-indstillinger:
-\setlrmarginsandblock{0.9cm}{*}{1} %angiver venstre-, så højremargin
-\setulmarginsandblock{1.49cm}{*}{1} %angiver øvre-, så nedremargin
+\setlrmarginsandblock{0.9cm}{*}{1}
+\setulmarginsandblock{1.49cm}{*}{1}
 \checkandfixthelayout[nearest]
-
-%Følgende giver en minimal sidehoved og sidefod hvor der kun er sidetal.
 \pagestyle{empty}
 
 \begin{document}
@@ -134,12 +129,12 @@
 	\\\redwinsection
 };
 
-% SUICIDE ELF
+% HUMBUG SPIRIT ELF
 \node[teamshare, fill=gray] at (16,8.9) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,6.9) {
-	{\Huge Suicide Elf}
+	{\Huge Humbug Spirit Elf}
 	\\\winseperator
-	You win if you end in the room with the \condition{Bomber} and you gain the \condition{dead} condition.
+	You win if you end in the room with the \condition{Grinch} and you gain the \condition{Humbug} condition.
 };
 
 \draw (0,0) -- (19.2,0);
@@ -181,16 +176,16 @@
 	\\\greenwinsection
 };
 
-% FATHER ELF (GREEN TEAM)
+% PAPA ELF (aka FATHER)
 \node[teamshare, fill=gray] at (16,26.7) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,24.7) {
-	{\Huge Father Elf}
+	{\Huge Papa Elf}
 	\\\actionseperator
 	During the first round of the game you must privately reveal your card to 2 players and verbally say to these 2 target players, "You are my children.”
 	\\\vspace{0.25cm}
 	\tiny You do not have to privately reveal your card to both of these 2 target players simultaneously.
 	\\\winseperator
-	You win if these 2 target players end in the same room as the president.
+	You win if these 2 target players end in the same room as \character{Santa}.
 };
 
 % FROTTEUR ELF (RED TEAM)
@@ -215,16 +210,16 @@
 	You win if you grab the \condition{Frotteur Elf}'s wrist by the end of the game. 
 };
 
-% MOTHER ELF (RED TEAM)
+% FATHER CHRISTMAS (aka MOTHER)
 \node[teamshare, fill=gray] at (16,17.8) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,15.8) {
-	{\Huge Mother Elf}
+	{\Huge Father Christmas}
 	\\\actionseperator
 	During the first round of the game you must privately reveal your card to 2 players and verbally say to these 2 target players, "You are my children.”
 	\\\vspace{0.25cm}
 	\tiny You do not have to privately reveal your card to both of these 2 target players simultaneously.
 	\\\winseperator
-	You win if these 2 target players do not gain the "dead" condition.
+	You win if these 2 target players do not gain the "Humbug" condition.
 };
 
 % PAPARAZZI ELF (GREEN TEAM)
@@ -245,12 +240,12 @@
 	\\\redwinsection
 };
 
-% SURVIVOR ELF
+% XMAS SPIRIT ELF
 \node[teamshare, fill=gray] at (16,8.9) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,6.9) {
-	{\Huge Survivor Elf}
+	{\Huge X-Mas Spirit Elf}
 	\\\winseperator
-	You win if you end in the opposite room as the \condition{Bomber} and you do not gain the \condition{dead} condition.
+	You win if you end in the opposite room as the \condition{Grinch} and you do not gain the \condition{Humbug} condition.
 };
 
 \draw (0,0) -- (19.2,0);
