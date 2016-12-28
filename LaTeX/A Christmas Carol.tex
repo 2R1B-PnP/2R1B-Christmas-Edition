@@ -10,8 +10,13 @@
 \usepackage[sfdefault]{roboto}
 \usepackage{color}
 
+% Styles
 \tikzstyle{teamshare} = [below, text width=5.4cm, inner sep = 0.5cm, text=white, align=center]
 \tikzstyle{cardtext} = [below, text width=5.9cm, inner sep = 0.25cm, text centered]
+\setlrmarginsandblock{0.9cm}{*}{1}
+\setulmarginsandblock{1.49cm}{*}{1}
+\checkandfixthelayout[nearest]
+\pagestyle{empty}
 
 % Define Commands
 \newcommand{\condition}[1]{\textbf{#1}}
@@ -20,128 +25,131 @@
 \titlespacing=0.15cm
 
 % Define Seperators
-\newcommand{\redseperator}{\vspace{\titlespacing} \hrulefill {} \ding{100} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\greenseperator}{\vspace{\titlespacing} \hrulefill {} \bomb{}/\ding{72} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\greyseperator}{\vspace{\titlespacing} \hrulefill {} \ding{100} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\purpleseperator}{\vspace{\titlespacing} \hrulefill {} \bomb{}/\ding{72} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\actionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny power \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\descriptionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny description \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\modifierseperator}{\vspace{\titlespacing} \hrulefill {} \tiny power \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\conditionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny condition \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\winseperator}{\vspace{\titlespacing} \hrulefill {} \tiny how to win \normalsize \hrulefill\\ \vspace{\titlespacing}}
+\newcommand{\seperator}[1]{\\ \vspace{\titlespacing} \hrulefill {} \tiny \bfseries #1 \normalfont \normalsize \hrulefill \\ \vspace{\titlespacing}}
+\newcommand{\seperatoraction}{\seperator{POWER}}
+\newcommand{\seperatordescription}{\seperator{DESCRIPTION}}
+\newcommand{\seperatorcondition}{\seperator{CONDITION}}
+\newcommand{\seperatorwin}{\seperator{HOW TO WIN}}
 \newcommand{\redwinsection}{
-	\winseperator
+	\seperatorwin
 	You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 }
 \newcommand{\greenwinsection}{
-	\winseperator
+	\seperatorwin
 	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 }
-\setlrmarginsandblock{0.9cm}{*}{1}
-\setulmarginsandblock{1.49cm}{*}{1}
-\checkandfixthelayout[nearest]
-\pagestyle{empty}
+\newcommand{\titlefrom}[1]{\\ \tiny > from #1 <}
 
+% Begin Document
 \begin{document}
+	
+% New Page
 \noindent \begin{tikzpicture}[outer sep=0]
 
-% Scrooge
-\node[teamshare, fill=gray] (1) at (3.2,26.7) {\HUGE GREEN};
+% SCROOGE
+\node[teamshare, fill=gray] (1) at (3.2,26.7) {\HUGE GREY};
 \node[cardtext, text=gray] at (3.2,24.7) {
 	{\Huge Scrooge}
-	\\\conditionseperator
+	\titlefrom{Charles Dickens' A Christmas Carol}
+	\seperatorcondition
 	\condition{Haunted}: You must accept card shares with \character{Ghosts}
-	\\\winseperator
-	If you haven't been visited by 3 Ghosts, then you want to gain the \condition{Humbug} condition at the end of the game.
-	\\\vspace{0.25cm}
+	\seperatorwin
+	If you haven't been visited by 3 Ghosts, then you want to gain the \condition{Humbug} condition at the end of the game. \\
+	\vspace{0.25cm}
 	If you have been visited by 3 Ghosts, then you do not want to gain the \condition{Humbug} condition.
 };
 
-% Ghostbuster
+% GHOSTBUSTER
 \node[teamshare, fill=gray] at (9.6,26.7) {\HUGE GREY};
 \node[cardtext, text=gray] at (9.6,24.7) {
 	{\Huge Ghostbuster}
-	\\\actionseperator
+	\titlefrom{Ghostbusters (1984)}
+	\seperatoraction
 	\condition{Proton-Share}: Card Reveal with a player and say "Proton-Share". That player must card share with you.
 	If you card share with a \character{Ghost}, then you keep their card for the remainder of the game.
 	\\\vspace{0.1cm}
 	\tiny You can only use this power once per round. 
-	\\\winseperator
-	You win if you capture all the \condition{Ghosts} at the end of the game.
+	\seperatorwin
+	You win if you capture all the \condition{Ghosts} by the end of the game.
 };
 
-% Jacob Marley
+% JACOB MARLEY
 \node[teamshare, fill=gray] at (16,26.7) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,24.7) {
 	{\Huge Jacob Marley}
-	\\\winseperator
+	\titlefrom{Charles Dickens' A Christmas Carol}
+	\seperatorwin
 	You win if \character{Scrooge} gains the \condition{Humbug} condition.
 };
 
-% Ghost Of Christmas Past
+% GHOST OF CHRISTMAS PAST
 \node[teamshare, fill=gray] at (3.2,17.8) {\HUGE GREY};
 \node[cardtext, text=gray] at (3.2,15.8) {
 	{\Huge Ghost X-Mas Past}
-	\\\conditionseperator
+	\titlefrom{Charles Dickens' A Christmas Carol}
+	\seperatorcondition
 	\condition{Ghost}: If you card reveal to someone with the \condition{Haunted} condition, they must card share with you.
 	\\\vspace{0.25cm}
 	\tiny If card share with \character{Ghostbuster}, you lose your character card the remainder of the game.
-	\\\winseperator
+	\seperatorwin
 	You win if you card share with \character{Scrooge} and \character{Scrooge} doesn't gain the \condition{humbug} condition.
 };
 
-% Ghost Of Christmas Present
+% GHOST OF CHRISTMAS PRESENT
 \node[teamshare, fill=gray] at (9.6,17.8) {\HUGE GREY};
 \node[cardtext, text=gray] at (9.6,15.8) {
 	{\Huge Ghost X-Mas Pres}
-	\\\conditionseperator
+	\titlefrom{Charles Dickens' A Christmas Carol}
+	\seperatorcondition
 	\condition{Ghost}: If you card reveal to someone with the \condition{Haunted} condition, they must card share with you.
 	\\\vspace{0.25cm}
 	\tiny If card share with \character{Ghostbuster}, you lose your character card the remainder of the game.
-	\\\winseperator
+	\seperatorwin
 	You win if you card share with \character{Scrooge} and \character{Scrooge} doesn't gain the \condition{humbug} condition.
 };
 
-% Ghost Of Christmas Future
+% GHOST OF CHRISTMAS FUTURE
 \node[teamshare, fill=gray] at (16,17.8) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,15.8) {
 	{\Huge Ghost X-Mas Futr}
-	\\\conditionseperator
+	\titlefrom{Charles Dickens' A Christmas Carol}
+	\seperatorcondition
 	\condition{Ghost}: If you card reveal to someone with the \condition{Haunted} condition, they must card share with you.
 	\\\vspace{0.25cm}
 	\tiny If card share with \character{Ghostbuster}, you lose your character card the remainder of the game.
-	\\\winseperator
+	\seperatorwin
 	You win if you card share with \character{Scrooge} and \character{Scrooge} doesn't gain the \condition{humbug} condition.
 };
 
-% Bill Murray
+% BILL MURRAY
 \node[teamshare, fill=gray] at (3.2,8.9) {\HUGE GREY};
 \node[cardtext, text=gray] at (3.2,6.9) {
 	{\Huge Bill Murray}
-	\\\descriptionseperator
+	\\ \tiny > the actor <
+	\seperatordescription
 	\tiny Every round is like waking up on Ground Hogs Day over and over again. Only gaining the \condition{Existential Self} condition will save you from insanity.
-	\\\actionseperator
+	\seperatoraction
 	You gain the \condition{Existential Self} condition if you card share with both \character{Scrooge} and \character{Ghostbuster} which were movies you starred in. 
-	\\\winseperator
+	\seperatorwin
 	You win if you gain the \condition{Existential Self} condition.
 };
 
-% GREEN TEAM ELF
+% RED TEAM ELF
 \node[teamshare, fill=red] at (9.6,8.9) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,6.9) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (16,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (16,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 
