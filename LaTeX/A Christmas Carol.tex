@@ -38,7 +38,7 @@
 	\seperatorwin
 	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 }
-\newcommand{\titlefrom}[1]{\\ \tiny > from #1 <}
+\newcommand{\titlefrom}[1]{\\ \tiny > from #1 <\normalsize}
 
 % Begin Document
 \begin{document}
@@ -52,11 +52,11 @@
 	{\Huge Scrooge}
 	\titlefrom{Charles Dickens' A Christmas Carol}
 	\seperatorcondition
-	\condition{Haunted}: You must accept card shares with \character{Ghosts}
+	\condition{Humbug}: You have no Christmas Spirit.\\\vspace{0.05cm}
+	\tiny humbug condition is forever cured when you card share with all 3 Ghosts Of X-Mas \\\vspace{0.25cm} \normalsize
+	\condition{Haunted}: You must accept card shares with \character{Ghosts}.
 	\seperatorwin
-	If you haven't been visited by 3 Ghosts, then you want to gain the \condition{Humbug} condition at the end of the game. \\
-	\vspace{0.25cm}
-	If you have been visited by 3 Ghosts, then you do not want to gain the \condition{Humbug} condition.
+	You win if you have the \condition{Humbug} condition at the end of the game. \\
 };
 
 % GHOSTBUSTER
@@ -79,7 +79,7 @@
 	{\Huge Jacob Marley}
 	\titlefrom{Charles Dickens' A Christmas Carol}
 	\seperatorwin
-	You win if \character{Scrooge} gains the \condition{Humbug} condition.
+	You win if \character{Scrooge} has the \condition{Humbug} condition at the end of the game.
 };
 
 % GHOST OF CHRISTMAS PAST
@@ -134,22 +134,31 @@
 	You win if you gain the \condition{Existential Self} condition.
 };
 
-% RED TEAM ELF
-\node[teamshare, fill=red] at (9.6,8.9) {\HUGE RED};
-\node[cardtext, text=red] at (9.6,6.9) {
-	{\Huge Red Team Elf}
-	\seperatordescription
-	You are on the Red Team.
-	\redwinsection
+% JIM CARREY
+\node[teamshare, fill=gray] at (9.6,8.9) {\HUGE GREY};
+\node[cardtext, text=gray] at (9.6,6.9) {
+	{\Huge Jim Carrey}
+	\\ \tiny > the actor <
+	\seperatoraction
+	You gain the \condition{Existential Self} condition if you card share with both \character{Scrooge} and the \character{Grinch} which were movies you starred in.
+	\seperatorwin
+	You win if you gain the \condition{Existential Self} condition.
 };
 
-% GREEN TEAM ELF
-\node[teamshare, fill=ForestGreen] at (16,8.9) {\HUGE GREEN};
-\node[cardtext, text=ForestGreen] at (16,6.9) {
-	{\Huge Green Team Elf}
-	\seperatordescription
-	You are on the Green Team.
-	\greenwinsection
+% NEPHEW FRED
+\node[teamshare, fill=gray] at (16,8.9) {\HUGE GREY};
+\node[cardtext, text=gray] at (16,6.9) {
+	{\Huge Nephew Fred}
+	\titlefrom{Charles Dickens' A Christmas Carol}
+	\seperatorcondition
+	\condition{Yes/No}: You like the game "Yes and No". So the only words you can say is "yes" and "no". \\\vspace{0.25cm}
+	\tiny Condition is removed when someone makes a correct \\
+	guess. Roll Dice. Your answer to that question is\\
+	the correct guess. Question) Last <\#> you <\#>. \\
+	1=tvshow,watched | 2=movie,watched | 3=snack,ate 
+	\\4=grocery,bought | 5=book,read | 6=store,visited
+	\seperatorwin
+	You win if you don't have the \condition{Yes/No} condition at the end of the game.
 };
 
 

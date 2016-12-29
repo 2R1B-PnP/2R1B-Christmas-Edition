@@ -10,50 +10,50 @@
 \usepackage[sfdefault]{roboto}
 \usepackage{color}
 
+% Styles
 \tikzstyle{teamshare} = [below, text width=5.4cm, inner sep = 0.5cm, text=white, align=center]
 \tikzstyle{cardtext} = [below, text width=5.9cm, inner sep = 0.25cm, text centered]
-
-% Define Commands
-\newcommand{\condition}[1]{\textbf{#1}}
-\newcommand{\character}[1]{\textbf{#1}}
-\newdimen\titlespacing
-\titlespacing=0.25cm
-
-% Define Seperators
-\newcommand{\redseperator}{\vspace{\titlespacing} \hrulefill {} \ding{100} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\greenseperator}{\vspace{\titlespacing} \hrulefill {} \bomb{}/\ding{72} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\greyseperator}{\vspace{\titlespacing} \hrulefill {} \ding{100} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\purpleseperator}{\vspace{\titlespacing} \hrulefill {} \bomb{}/\ding{72} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\actionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny power \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\descriptionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny description \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\modifierseperator}{\vspace{\titlespacing} \hrulefill {} \tiny power \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\conditionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny condition \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\winseperator}{\vspace{\titlespacing} \hrulefill {} \tiny how to win \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\redwinsection}{
-	\winseperator
-	You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
-}
-\newcommand{\greenwinsection}{
-	\winseperator
-	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
-}
 \setlrmarginsandblock{0.9cm}{*}{1}
 \setulmarginsandblock{1.49cm}{*}{1}
 \checkandfixthelayout[nearest]
 \pagestyle{empty}
 
+% Define Commands
+\newcommand{\condition}[1]{\textbf{#1}}
+\newcommand{\character}[1]{\textbf{#1}}
+\newdimen\titlespacing
+\titlespacing=0.15cm
+
+% Define Seperators
+\newcommand{\seperator}[1]{\\ \vspace{\titlespacing} \hrulefill {} \tiny \bfseries #1 \normalfont \normalsize \hrulefill \\ \vspace{\titlespacing}}
+\newcommand{\seperatoraction}{\seperator{POWER}}
+\newcommand{\seperatordescription}{\seperator{DESCRIPTION}}
+\newcommand{\seperatorcondition}{\seperator{CONDITION}}
+\newcommand{\seperatorwin}{\seperator{HOW TO WIN}}
+\newcommand{\redwinsection}{
+	\seperatorwin
+	You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
+}
+\newcommand{\greenwinsection}{
+	\seperatorwin
+	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
+}
+\newcommand{\titlefrom}[1]{\\ \tiny > from #1 <\normalsize}
+
+% Begin Document
 \begin{document}
+	
+% New Page
 \noindent \begin{tikzpicture}[outer sep=0]
 
 % SHY ELF (GREEN TEAM)
 \node[teamshare, fill=ForestGreen] (1) at (3.2,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,24.7) {
 	{\Huge Shy Elf}
-	\\\conditionseperator
+	\seperatorcondition
 	\condition{Shy}: You may not reveal any part of your card in any way.
 	\\\vspace{0.05cm}
 	\tiny (The \condition{foolish} and \condition{shy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
 	\greenwinsection
 };
 
@@ -61,11 +61,10 @@
 \node[teamshare, fill=red] at (9.6,26.7) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,24.7) {
 	{\Huge Shy Elf}
-	\\\conditionseperator
+	\seperatorcondition
 	\condition{Shy}: You may not reveal any part of your card in any way.
 	\\\vspace{0.05cm}
 	\tiny (The \condition{foolish} and \condition{shy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -73,9 +72,8 @@
 \node[teamshare, fill=ForestGreen] at (16,26.7) {\HUGE GREEN};
 \node[cardtext, text=red] at (16,24.7) {
 	{\Huge Spy Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	The top of your card says GREEN, but you are actually on Team Red.
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -83,9 +81,8 @@
 \node[teamshare, fill=red] at (3.2,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (3.2,15.8) {
 	{\Huge Negotiator Elf}
-	\\\conditionseperator
-	\condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.
-	\\\vspace{0.25cm}
+	\seperatorcondition
+	\condition{Savvy}: You may only Card Share. You may not Color Share, Color Reveal, Card Reveal.
 	\redwinsection
 };
 
@@ -93,9 +90,8 @@
 \node[teamshare, fill=ForestGreen] at (9.6,17.8) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (9.6,15.8) {
 	{\Huge Negotiator Elf}
-	\\\conditionseperator
-	\condition{Savvy}: You may only Card Share. You may not Colour Share, Colour Reveal, Card Reveal.
-	\\\vspace{0.25cm}
+	\seperatorcondition
+	\condition{Savvy}: You may only Card Share. You may not Color Share, Color Reveal, Card Reveal.
 	\greenwinsection
 };
 
@@ -103,9 +99,8 @@
 \node[teamshare, fill=red] at (16,17.8) {\HUGE RED};
 \node[cardtext, text=ForestGreen] at (16,15.8) {
 	{\Huge Spy Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	The top of your card says RED, but you are actually on Team Green.
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -113,11 +108,10 @@
 \node[teamshare, fill=ForestGreen] at (3.2,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,6.9) {
 	{\Huge Coy Elf}
-	\\\conditionseperator
-	\condition{Coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.
+	\seperatorcondition
+	\condition{Coy}: You may only Color Share. You may not Color Reveal, Card reveal, or Card Share.
 	\\\vspace{0.05cm}
 	\tiny (The \condition{foolish} and \condition{coy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
 	\greenwinsection
 };
 
@@ -125,11 +119,10 @@
 \node[teamshare, fill=red] at (9.6,8.9) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,6.9) {
 	{\Huge Coy Elf}
-	\\\conditionseperator
-	\condition{Coy}: You may only Colour Share. You may not Colour Reveal, Card reveal, or Card Share.
+	\seperatorcondition
+	\condition{Coy}: You may only Color Share. You may not Color Reveal, Card reveal, or Card Share.
 	\\\vspace{0.05cm}
 	\tiny (The \condition{foolish} and \condition{coy} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -138,11 +131,10 @@
 \node[teamshare, fill=ForestGreen,rotate=180] at (16,0) {\HUGE GREEN};
 \node[cardtext, text=gray] at (16,7.1) {
 	{\Huge Mastermind}
-	\\\vspace{0.05cm}
-	\winseperator
+	\seperatorwin
 	At the end of the game, before anyone reveal their cards, you must publically announce the colour of \emph{every} player. If correct, you win and everyone else loses.
 	\\\vspace{0.3cm}
-	You can use either colour for Colour Share or Reveal.
+	You can use either color for Color Share or Reveal.
 };
 
 \draw (0,0) -- (19.2,0);
@@ -173,11 +165,10 @@
 \node[teamshare, fill=ForestGreen] (1) at (3.2,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,24.7) {
 	{\Huge Foolish Elf}
-	\\\conditionseperator
-	\condition{Foolish}: You may not turn down an offer to Card Share or Colour Share.
+	\seperatorcondition
+	\condition{Foolish}: You may not turn down an offer to Card Share or Color Share.
 	\\\vspace{0.05cm}
 	\tiny (The \condition{shy} and \condition{foolish} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
 	\greenwinsection
 };
 
@@ -185,11 +176,10 @@
 \node[teamshare, fill=red] at (9.6,26.7) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,24.7) {
 	{\Huge Foolish Elf}
-	\\\conditionseperator
-	\condition{Foolish}: You may not turn down an offer to Card Share or Colour Share.
+	\seperatorcondition
+	\condition{Foolish}: You may not turn down an offer to Card Share or Color Share.
 	\\\vspace{0.05cm}
 	\tiny (The \condition{shy} and \condition{foolish} conditions cancel each other out.) \normalsize
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -197,11 +187,10 @@
 \node[teamshare, fill=ForestGreen] at (16,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (16,24.7) {
 	{\Huge Agent Elf}
-	\\\actionseperator
-	\condition{Agent}: Once per round, you may privately reveal your card to another player, and force that player to Card Share with you.
+	\seperatoraction
+	\condition{Agent}: Once per round, you may privately reveal your card to \\another player, and force that player to Card Share with you.
 	\\\vspace{0.25cm}
 	\tiny (If the power is used on a player that cannot Card Share, the power is wasted.)
-	\\\vspace{0.05cm}
 	\greenwinsection
 };
 
@@ -209,9 +198,8 @@
 \node[teamshare, fill=red] at (3.2,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (3.2,15.8) {
 	{\Huge Psychologist Elf}
-	\\\modifierseperator
+	\seperatoraction
 	When you Card Reveal to a player with the \condition{shy} or \condition{coy} conditions, that player may then Card Share with you. If they do so, their \condition{shy} or \condition{coy} condition is removed.
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -219,9 +207,8 @@
 \node[teamshare, fill=ForestGreen] at (9.6,17.8) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (9.6,15.8) {
 	{\Huge Psychologist Elf}
-	\\\modifierseperator
+	\seperatoraction
 	When you Card Reveal to a player with the \condition{shy} or \condition{coy} conditions, that player may then Card Share with you. If they do so, their \condition{shy} or \condition{coy} condition is removed.
-	\\\vspace{0.25cm}
 	\greenwinsection
 };
 
@@ -229,11 +216,10 @@
 \node[teamshare, fill=red] at (16,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (16,15.8) {
 	{\Huge Agent Elf}
-	\\\actionseperator
-	\condition{Agent}: Once per round, you may privately reveal your card to another player, and force that player to Card Share with you.
+	\seperatoraction
+	\condition{Agent}: Once per round, you may privately reveal your card to \\another player, and force that player to Card Share with you.
 	\\\vspace{0.25cm}
 	\tiny (If the power is used on a player that cannot Card Share, the power is wasted.)
-	\\\vspace{0.05cm}
 	\redwinsection
 };
 
@@ -241,13 +227,12 @@
 \node[teamshare, fill=ForestGreen] at (3.2,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,6.9) {
 	{\Huge Criminal Elf}
-	\\\modifierseperator
+	\seperatoraction
 	Any player that Card Shares with you becomes \condition{shy}.
 	\\\vspace{0.25cm}
 	\tiny Players that are \condition{shy} may not reveal any part of their card in any way.
 	\\\vspace{0.25cm}
-	\tiny (The shy condition is cancelled out by either of the \condition{foolish} or \condition{coy} conditions)
-	\\\vspace{0.01cm}
+	\tiny (The shy condition is cancelled out by \\either of the \condition{foolish} or \condition{coy} conditions)
 	\greenwinsection
 };
 
@@ -255,13 +240,12 @@
 \node[teamshare, fill=red] at (9.6,8.9) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,6.9) {
 	{\Huge Criminal Elf}
-	\\\modifierseperator
+	\seperatoraction
 	Any player that Card Shares with you becomes \condition{shy}.
 	\\\vspace{0.25cm}
 	\tiny Players that are \condition{shy} may not reveal any part of their card in any way.
 	\\\vspace{0.25cm}
-	\tiny (The shy condition is cancelled out by either of the \condition{foolish} or \condition{coy} conditions)
-	\\\vspace{0.01cm}
+	\tiny (The shy condition is cancelled out by \\either of the \condition{foolish} or \condition{coy} conditions)
 	\redwinsection
 };
 
@@ -269,7 +253,7 @@
 \node[teamshare, fill=gray] at (16,8.9) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,6.9) {
 	{\Huge Clone}
-	\\\winseperator
+	\seperatorwin
 	If the first player you card or color share with wins, you win.
 };
 
@@ -302,11 +286,10 @@
 \node[teamshare, fill=ForestGreen] (1) at (3.2,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,24.7) {
 	{\Huge Professor Elf}
-	\\\actionseperator
+	\seperatoraction
 	Any player that card shares with you becomes \condition{savvy}.
 	\\\vspace{0.25cm}
 	\tiny (\condition{Savvy} players may only card share.)
-	\\\vspace{0.25cm}
 	\greenwinsection
 };
 
@@ -314,11 +297,10 @@
 \node[teamshare, fill=red] at (9.6,26.7) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,24.7) {
 	{\Huge Professor Elf}
-	\\\actionseperator
+	\seperatoraction
 	Any player that card shares with you becomes \condition{savvy}.
 	\\\vspace{0.25cm}
 	\tiny (\condition{Savvy} players may only card share.)
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -326,11 +308,10 @@
 \node[teamshare, fill=ForestGreen] at (16,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (16,24.7) {
 	{\Huge Medic Elf}
-	\\\actionseperator
+	\seperatoraction
 	Any player that card shares with you has all “conditions” removed.
 	\\\vspace{0.25cm}
 	\tiny (You are not immune from gaining conditions.)
-	\\\vspace{0.25cm}
 	\greenwinsection
 };
 
@@ -338,11 +319,10 @@
 \node[teamshare, fill=red] at (3.2,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (3.2,15.8) {
 	{\Huge Enlisted Elf}
-	\\\actionseperator
+	\seperatoraction
 	During any round but the last, you may publicly reveal your card and automatically become one of the hostages for the end of that round. 
 	\\\vspace{0.25cm}
 	\tiny However, your card must permanently remain publicly revealed for the rest of the game. This means that you can only use this power once.
-	\\\vspace{0.01cm}
 	\redwinsection
 };
 
@@ -350,11 +330,10 @@
 \node[teamshare, fill=ForestGreen] at (9.6,17.8) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (9.6,15.8) {
 	{\Huge Enlisted Elf}
-	\\\actionseperator
+	\seperatoraction
 	During any round but the last, you may publicly reveal your card and automatically become one of the hostages for the end of that round. 
 	\\\vspace{0.25cm}
 	\tiny However, your card must permanently remain publicly revealed for the rest of the game. This means that you can only use this power once.
-	\\\vspace{0.01cm}
 	\greenwinsection
 };
 
@@ -362,11 +341,10 @@
 \node[teamshare, fill=red] at (16,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (16,15.8) {
 	{\Huge Medic Elf}
-	\\\actionseperator
+	\seperatoraction
 	Any player that card shares with you has all “conditions” removed.
 	\\\vspace{0.25cm}
 	\tiny (You are not immune from gaining conditions.)
-	\\\vspace{0.25cm}
 	\redwinsection
 };
 
@@ -374,37 +352,43 @@
 \node[teamshare, fill=ForestGreen] at (3.2,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,6.9) {
 	{\Huge Interrogator Elf}
-	\\\actionseperator
-	Once per round you may privately reveal to any player in the room and ask them a single yes/no question to which they must answer honestly.
-	\\\vspace{0.1cm} 
+	\seperatoraction
+	Once per round you may privately \\
+	reveal to any player in the room and \\
+	ask them a single yes/no question \\
+	which they must answer honestly. \\
+	\vspace{0.1cm} 
 	\tiny
-	If they sincerely don’t know the answer to the question, then they should indicate such. Answering doesn’t have to be verbal. When using the Interrogate ability, you must verbally announce to your target player, "I am using my Interrogate ability," as you privately reveal your card to them.
-	\\\vspace{0.1cm}
-	\hrulefill {} \tiny how to win \hrulefill
-	\\\vspace{0.05cm}
-	\tiny You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
+	If they sincerely don’t know the answer to the question, then they should indicate such. Answering \\
+	doesn’t have to be verbal. When using the \\
+	Interrogate ability, you must verbally announce to your target player, "I am using my Interrogate ability," as you privately reveal your card to them.
+	\seperatorwin
+	\normalsize You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 };
 
 % INTERROGATOR ELF (RED TEAM)
 \node[teamshare, fill=red] at (9.6,8.9) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,6.9) {
 	{\Huge Interrogator Elf}
-	\\\actionseperator
-	Once per round you may privately reveal to any player in the room and ask them a single yes/no question to which they must answer honestly.
-	\\\vspace{0.1cm} 
+	\seperatoraction
+	Once per round you may privately \\
+	reveal to any player in the room and \\
+	ask them a single yes/no question \\
+	which they must answer honestly. \\
+	\vspace{0.1cm} 
 	\tiny
-	If they sincerely don’t know the answer to the question, then they should indicate such. Answering doesn’t have to be verbal. When using the Interrogate ability, you must verbally announce to your target player, "I am using my Interrogate ability," as you privately reveal your card to them.
-	\\\vspace{0.1cm}
-	\hrulefill {} \tiny how to win \hrulefill
-	\\\vspace{0.05cm}
-	\tiny You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
+	If they sincerely don’t know the answer to the question, then they should indicate such. Answering \\
+	doesn’t have to be verbal. When using the \\
+	Interrogate ability, you must verbally announce to your target player, "I am using my Interrogate ability," as you privately reveal your card to them.
+	\seperatorwin
+	\normalsize You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 };
 
 % MI6 ELF
 \node[teamshare, fill=gray] at (16,8.9) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,6.9) {
 	{\Huge MI6 Elf}
-	\\\winseperator
+	\seperatorwin
 	You win if you card share with the \character{Grinch} and \character{Santa} before the end of the game.
 };
 

@@ -10,47 +10,50 @@
 \usepackage[sfdefault]{roboto}
 \usepackage{color}
 
+% Styles
 \tikzstyle{teamshare} = [below, text width=5.4cm, inner sep = 0.5cm, text=white, align=center]
-\tikzstyle{cardtext} = [below, text width=5.4cm, inner sep = 0.5cm, text centered]
-
-% Define Commands
-\newcommand{\condition}[1]{\textbf{#1}}
-\newcommand{\character}[1]{\textbf{#1}}
-\newdimen\titlespacing
-\titlespacing=0.25cm
-
-% Define Seperators
-\newcommand{\redseperator}{\vspace{\titlespacing} \hrulefill {} \ding{100} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\greenseperator}{\vspace{\titlespacing} \hrulefill {} \bomb{}/\ding{72} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\greyseperator}{\vspace{\titlespacing} \hrulefill {} \ding{100} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\purpleseperator}{\vspace{\titlespacing} \hrulefill {} \bomb{}/\ding{72} \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\descriptionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny description \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\modifierseperator}{\vspace{\titlespacing} \hrulefill {} \tiny power \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\conditionseperator}{\vspace{\titlespacing} \hrulefill {} \tiny condition \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\winseperator}{\vspace{\titlespacing} \hrulefill {} \tiny how to win \normalsize \hrulefill\\ \vspace{\titlespacing}}
-\newcommand{\redwinsection}{
-	\winseperator
-	You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
-}
-\newcommand{\greenwinsection}{
-	\winseperator
-	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
-}
+\tikzstyle{cardtext} = [below, text width=5.9cm, inner sep = 0.25cm, text centered]
 \setlrmarginsandblock{0.9cm}{*}{1}
 \setulmarginsandblock{1.49cm}{*}{1}
 \checkandfixthelayout[nearest]
 \pagestyle{empty}
 
+% Define Commands
+\newcommand{\condition}[1]{\textbf{#1}}
+\newcommand{\character}[1]{\textbf{#1}}
+\newdimen\titlespacing
+\titlespacing=0.15cm
+
+% Define Seperators
+\newcommand{\seperator}[1]{\\ \vspace{\titlespacing} \hrulefill {} \tiny \bfseries #1 \normalfont \normalsize \hrulefill \\ \vspace{\titlespacing}}
+\newcommand{\seperatoraction}{\seperator{POWER}}
+\newcommand{\seperatordescription}{\seperator{DESCRIPTION}}
+\newcommand{\seperatorcondition}{\seperator{CONDITION}}
+\newcommand{\seperatorwin}{\seperator{HOW TO WIN}}
+\newcommand{\redwinsection}{
+	\seperatorwin
+	You win if \character{Santa} does not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
+}
+\newcommand{\greenwinsection}{
+	\seperatorwin
+	\small You win if \character{Santa} gains the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
+}
+\newcommand{\titlefrom}[1]{\\ \tiny > from #1 <\normalsize}
+
+% Begin Document
 \begin{document}
+	
+% New Page
 \noindent \begin{tikzpicture}[outer sep=0]
 
 % THE GRINCH
 \node[teamshare, fill=ForestGreen] (1) at (3.2,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,24.7) {
 	{\Huge Grinch}
-	\\\descriptionseperator
+	\titlefrom{Dr. Seuss' How the Grinch Stole Christmas}
+	\seperatordescription
 	When the game ends, you steal Christmas. Everyone in your room gains the \condition{humbug} condition
-	\\\winseperator
+	\seperatorwin
 	Green team wins if \character{Santa} gains the \condition{humbug} condition.
 };
 
@@ -58,7 +61,7 @@
 \node[teamshare, fill=red] at (9.6,26.7) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,24.7) {
 	{\Huge Santa}
-	\\\winseperator
+	\seperatorwin
 	Red team wins if you do not gain the \condition{humbug} condition due to the \character{Grinch} stealing Christmas.
 };
 
@@ -66,7 +69,7 @@
 \node[teamshare, fill=gray] at (16,26.7) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,24.7) {
 	{\Huge Gambler Elf}
-	\\\winseperator
+	\seperatorwin
 	Before the last round begins, you must publically announce which team you think is going to win. If you are correct, you win. If not, you lose.
 };
 
@@ -74,54 +77,54 @@
 \node[teamshare, fill=red] at (3.2,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (3.2,15.8) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % RED TEAM ELF
 \node[teamshare, fill=red] at (9.6,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,15.8) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % RED TEAM ELF
 \node[teamshare, fill=red] at (16,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (16,15.8) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (3.2,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (9.6,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (9.6,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (16,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (16,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 \draw (0,0) -- (19.2,0);
@@ -148,27 +151,27 @@
 \node[teamshare, fill=red] (1) at (3.2,26.7) {\HUGE RED};
 \node[cardtext, text=red] at (3.2,24.7) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (9.6,26.7) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (9.6,24.7) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 % HOT POTATO
 \node[teamshare, fill=gray] at (16,26.7) {\HUGE GREY};
 \node[cardtext, text=gray] at (16,24.7) {
 	{\Huge Hot Potato}
-	\\\modifierseperator
+	\seperatoraction
 	Any player that card shares, or even color reveals, with you must immediately exchange his card for yours: You gain his card, and assume his previous role. He becomes the Hot Potato.
-	\\\winseperator
+	\seperatorwin
 	You can't. You always lose at the end of the game	
 };
 
@@ -176,54 +179,54 @@
 \node[teamshare, fill=red] at (3.2,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (3.2,15.8) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % RED TEAM ELF
 \node[teamshare, fill=red] at (9.6,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (9.6,15.8) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % RED TEAM ELF
 \node[teamshare, fill=red] at (16,17.8) {\HUGE RED};
 \node[cardtext, text=red] at (16,15.8) {
 	{\Huge Red Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Red Team.
-	\\\redwinsection
+	\redwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (3.2,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (3.2,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (9.6,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (9.6,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 % GREEN TEAM ELF
 \node[teamshare, fill=ForestGreen] at (16,8.9) {\HUGE GREEN};
 \node[cardtext, text=ForestGreen] at (16,6.9) {
 	{\Huge Green Team Elf}
-	\\\descriptionseperator
+	\seperatordescription
 	You are on the Green Team.
-	\\\greenwinsection
+	\greenwinsection
 };
 
 \draw (0,0) -- (19.2,0);
